@@ -6,105 +6,72 @@
   <title>CryptoShield Insurance</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f9fc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fc;
       color: #333;
-    }
-
-    header {
-      background: #0d1b2a;
-      color: white;
-      padding: 1.5rem;
       text-align: center;
+      padding: 20px;
     }
-
-    h1 {
-      margin: 0;
-      font-size: 2rem;
+    .button-container {
+      margin: 30px auto;
     }
-
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      border-radius: 12px;
-    }
-
-    .button-group {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .button-group button {
-      background-color: #1d3557;
-      color: white;
+    button {
+      background-color: #007bff;
+      color: #fff;
       border: none;
-      padding: 0.8rem 1.5rem;
-      margin: 0.5rem;
+      padding: 15px 25px;
+      margin: 10px;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s ease;
+      font-size: 18px;
+      transition: 0.3s;
     }
-
-    .button-group button:hover {
-      background-color: #457b9d;
+    button:hover {
+      background-color: #0056b3;
     }
-
+    .form-section {
+      display: none;
+      margin-top: 30px;
+    }
     iframe {
       width: 100%;
+      height: 800px;
       border: none;
-      display: none;
-      margin-top: 1rem;
-    }
-
-    iframe.active {
-      display: block;
-      height: 1400px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 2rem;
-      padding: 1rem;
-      color: #777;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CryptoShield Insurance</h1>
-    <p>Your Trusted Scam Protection Partner</p>
-  </header>
 
-  <div class="container">
-    <div class="button-group">
-      <button onclick="showForm('takeForm')">Take Insurance</button>
-      <button onclick="showForm('claimForm')">Make a Claim</button>
-    </div>
+  <h1>CryptoShield Insurance</h1>
+  <p>Protect your crypto transactions. Register or file a claim with ease.</p>
 
-    <iframe id="takeForm" class="form-frame" src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true"></iframe>
-    <iframe id="claimForm" class="form-frame" src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true"></iframe>
+  <div class="button-container">
+    <button onclick="showForm('take')">Take Insurance</button>
+    <button onclick="showForm('claim')">Claim Insurance</button>
   </div>
 
-  <footer>
-    &copy; 2025 CryptoShield Insurance. All rights reserved.
-  </footer>
+  <div id="take-form" class="form-section">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true"></iframe>
+  </div>
+
+  <div id="claim-form" class="form-section">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true"></iframe>
+  </div>
 
   <script>
-    function showForm(formId) {
-      const forms = document.querySelectorAll(".form-frame");
-      forms.forEach(form => form.classList.remove("active"));
-      document.getElementById(formId).classList.add("active");
-    }
+    function showForm(type) {
+      document.getElementById("take-form").style.display = "none";
+      document.getElementById("claim-form").style.display = "none";
 
-    // Show "Take Insurance" by default
-    window.onload = () => showForm('takeForm');
+      if (type === 'take') {
+        document.getElementById("take-form").style.display = "block";
+      } else if (type === 'claim') {
+        document.getElementById("claim-form").style.display = "block";
+      }
+    }
   </script>
+
 </body>
 </html>
