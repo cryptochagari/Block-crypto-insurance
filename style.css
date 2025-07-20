@@ -1,92 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CryptoShield Insurance</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-    }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #00c9ff, #92fe9d); /* Colorful gradient */
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
 
-    header {
-      background-color: #111;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
+p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
 
-    header p {
-      margin: 5px 0 0;
-      font-size: 16px;
-      color: #ccc;
-    }
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
 
-    .form-section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
+button {
+  padding: 12px 24px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #004aad;
+  color: white;
+  transition: background-color 0.3s ease;
+}
 
-    .form-section h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #0071e3;
-      text-align: center;
-    }
+button:hover {
+  background-color: #002d6e;
+}
 
-    iframe {
-      width: 100%;
-      height: 1800px;
-      border: none;
-      border-radius: 10px;
-    }
+.form-container {
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      background-color: #f1f1f1;
-      color: #888;
-    }
-
-    @media (max-width: 768px) {
-      .form-section {
-        margin: 20px 10px;
-      }
-
-      iframe {
-        height: 1900px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>CryptoShield Insurance</h1>
-    <p>Scam Protection You Can Trust</p>
-  </header>
-
-  <section class="form-section">
-    <h2>Submit Your Insurance Claim</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">Loading…</iframe>
-  </section>
-
-  <footer>
-    &copy; 2025 CryptoShield Insurance. All rights reserved.
-  </footer>
-
-</body>
-</html>
+iframe {
+  width: 100%;
+  height: 800px;
+  border: none;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
