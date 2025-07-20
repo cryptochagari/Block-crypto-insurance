@@ -11,16 +11,17 @@
       color: #333;
       text-align: center;
       padding: 20px;
+      margin: 0;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
       margin-bottom: 0.2em;
     }
 
     p {
-      font-size: 1.2em;
-      margin-bottom: 2em;
+      font-size: 1.1em;
+      margin-bottom: 1.5em;
     }
 
     .buttons {
@@ -36,11 +37,12 @@
       border-radius: 8px;
       background-color: #007bff;
       color: white;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
 
     button:hover {
       background-color: #0056b3;
+      transform: scale(1.05);
     }
 
     iframe {
@@ -55,24 +57,71 @@
     .visible {
       display: block;
     }
+
+    .info-section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      margin: 40px auto;
+      max-width: 700px;
+      text-align: left;
+    }
+
+    .info-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .info-section .highlight {
+      color: #e91e63;
+      font-weight: bold;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .info-section {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 <body>
   <h1>CryptoShield Insurance</h1>
   <p>Protect your crypto transactions from scams and fraud. Register your transaction below or make a claim if something went wrong.</p>
-  
+
   <div class="buttons">
     <button onclick="showForm('takeForm')">Take Insurance</button>
     <button onclick="showForm('claimForm')">Make a Claim</button>
   </div>
 
   <div id="takeForm" class="form">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">Loading…</iframe>
   </div>
 
   <div id="claimForm" class="form">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true">Loading…</iframe>
   </div>
+
+  <section class="info-section">
+    <h2>💼 Contact & Pricing Information</h2>
+    <p><strong>Coverage Fee:</strong> We charge <span class="highlight">1%</span> of the total insured crypto transaction.</p>
+    <p><strong>Example:</strong> If you're insuring $500, your fee will be just $5.</p>
+    <p><strong>Email:</strong> <a href="mailto:chagarioliver@gmail.com">chagarioliver@gmail.com</a></p>
+    <p><strong>Phone:</strong> +254742584625</p>
+  </section>
 
   <script>
     function showForm(formId) {
@@ -84,10 +133,3 @@
   </script>
 </body>
 </html>
-<section class="info-section">
-  <h2>💼 Contact & Pricing Information</h2>
-  <p><strong>Coverage Fee:</strong> We charge <span class="highlight">1%</span> of the total insured crypto transaction.</p>
-  <p><strong>Example:</strong> If you're insuring $500, your fee will be just $5.</p>
-  <p><strong>Email:</strong> <a href="mailto:chagarioliver@gmail.com">chagarioliver@gmail.com</a></p>
-  <p><strong>Phone:</strong> +254742584625</p>
-</section>
