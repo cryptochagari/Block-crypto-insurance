@@ -2,50 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CryptoShield Insurance</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #1e1e2f;
+      color: white;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .tagline {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      color: #c0c0c0;
+    }
+    .button-container {
+      margin: 2rem auto;
+    }
+    .btn {
+      background-color: #0077ff;
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      margin: 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #005fd1;
+    }
+    iframe {
+      width: 90%;
+      height: 1000px;
+      border: none;
+      margin-top: 2rem;
+      display: none;
+    }
+    footer {
+      background: #1e1e2f;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">🛡️ CryptoShield Insurance</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="register.html">Take Insurance</a></li>
-        <li><a href="claim.html">File a Claim</a></li>
-      </ul>
-    </nav>
+    <h1>CryptoShield Insurance</h1>
+    <p class="tagline">Scam Protection for Crypto Transactions</p>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Protect Your Crypto Transactions</h1>
-      <p>Your safety net in the world of digital finance. Instant coverage. Fast claims.</p>
-      <a href="register.html" class="btn">Take Insurance</a>
-    </div>
-    <div class="hero-img">
-      <img src="https://i.imgur.com/W1aO9ZM.png" alt="Crypto Protection" />
-    </div>
-  </section>
+  <div class="button-container">
+    <button class="btn" onclick="toggleForm('registerForm')">Take Insurance</button>
+    <button class="btn" onclick="toggleForm('claimForm')">Submit Claim</button>
+  </div>
 
-  <section class="features">
-    <div class="feature">
-      <h3>🚀 Fast Claims</h3>
-      <p>Submit claims in seconds, get feedback instantly via email.</p>
-    </div>
-    <div class="feature">
-      <h3>🔒 Scam Protection</h3>
-      <p>Shield yourself from fraud. We verify before you transact.</p>
-    </div>
-    <div class="feature">
-      <h3>🌍 Global Access</h3>
-      <p>Available wherever you trade. Anytime, anywhere.</p>
-    </div>
-  </section>
+  <!-- Replace these iframe src URLs with your actual Google Form embed links -->
+  <iframe id="registerForm" src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true" allowfullscreen></iframe>
+  
+  <iframe id="claimForm" src="https://docs.google.com/forms/d/e/1FAIpQLSf9YEXAMPLECLAIMFORMURL/viewform?embedded=true" allowfullscreen></iframe>
 
   <footer>
-    <p>&copy; 2025 CryptoShield Insurance | Built for secure trading.</p>
+    &copy; 2025 CryptoShield Insurance. All rights reserved.
   </footer>
+
+  <script>
+    function toggleForm(formId) {
+      const forms = ['registerForm', 'claimForm'];
+      forms.forEach(id => {
+        document.getElementById(id).style.display = id === formId ? 'block' : 'none';
+      });
+    }
+  </script>
 </body>
 </html>
