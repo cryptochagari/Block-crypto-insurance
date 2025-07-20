@@ -1,63 +1,54 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
+  background: #f5f7fa;
   color: #333;
 }
 
 header {
-  background: #222;
+  background: #1a1a2e;
   color: white;
-  text-align: center;
-  padding: 2em 1em;
-}
-
-.logo {
-  width: 80px;
-}
-
-.hero {
-  padding: 2em;
-  background: #4a00e0;
-  color: white;
+  padding: 2rem;
   text-align: center;
 }
 
-.hero .btn {
-  background: #fff;
-  color: #4a00e0;
-  padding: 0.7em 1.5em;
-  text-decoration: none;
-  border-radius: 5px;
+.tagline {
+  font-size: 1.2rem;
+  color: #aaa;
 }
 
-section {
-  padding: 2em;
-  max-width: 600px;
+main {
+  padding: 2rem;
+  max-width: 900px;
   margin: auto;
 }
 
-form input, form textarea {
-  width: 100%;
-  padding: 1em;
-  margin: 0.5em 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+h2 {
+  color: #1a1a2e;
 }
 
-button {
-  background: #4a00e0;
-  color: white;
-  border: none;
-  padding: 1em;
-  border-radius: 5px;
-  cursor: pointer;
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin: 10px 0;
+  padding-left: 1em;
+  position: relative;
+}
+
+ul li::before {
+  content: "✔";
+  color: #28a745;
+  position: absolute;
+  left: 0;
 }
 
 footer {
   text-align: center;
-  padding: 1em;
-  background: #222;
+  padding: 1rem;
+  background: #1a1a2e;
   color: white;
 }
