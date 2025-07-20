@@ -4,82 +4,130 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CryptoShield Insurance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #00c9ff, #92fe9d);
-      color: #333;
-      text-align: center;
-      padding: 20px;
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
     }
 
-    h1 {
-      font-size: 2.8em;
-      margin-bottom: 0.2em;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f0f0f0;
+      min-height: 100vh;
+      padding: 0 20px;
     }
 
-    p {
-      font-size: 1.1em;
-      margin-bottom: 1.5em;
+    header {
+      background: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #00c9ff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .container h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .container p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
     .buttons {
-      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
 
-    button {
-      padding: 12px 24px;
-      margin: 10px;
-      font-size: 1em;
-      cursor: pointer;
+    .buttons button {
+      background: #00c9ff;
+      color: #fff;
+      padding: 14px 28px;
       border: none;
       border-radius: 8px;
-      background-color: #007bff;
-      color: white;
-      transition: background 0.3s, transform 0.2s;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
     }
 
-    button:hover {
-      background-color: #0056b3;
-      transform: scale(1.05);
+    .buttons button:hover {
+      background: #00a2d6;
+      transform: translateY(-2px);
     }
 
     iframe {
       display: none;
       width: 100%;
-      max-width: 640px;
-      height: 800px;
+      height: 700px;
       border: none;
-      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     }
 
-    .visible {
+    iframe.visible {
       display: block;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .info-section {
-      background: #fff;
+      background: #ffffff11;
+      padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 25px;
-      margin: 40px auto;
-      max-width: 700px;
+      margin-top: 3rem;
       text-align: left;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
 
-    .info-section h2 {
-      text-align: center;
-      margin-bottom: 20px;
+    .info-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
 
-    .info-section .highlight {
-      color: #e91e63;
+    .info-section p {
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+
+    .highlight {
+      color: #00ffcc;
       font-weight: bold;
     }
 
     a {
-      color: #007bff;
+      color: #00c9ff;
       text-decoration: none;
     }
 
@@ -88,40 +136,47 @@
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
+      .container h2 {
+        font-size: 1.5rem;
       }
 
-      .info-section {
-        padding: 15px;
+      .buttons button {
+        width: 100%;
+        margin-bottom: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <h1>CryptoShield Insurance</h1>
-  <p>Protect your crypto transactions from scams and fraud. Register your transaction below or make a claim if something went wrong.</p>
+  <header>
+    <h1>CryptoShield</h1>
+  </header>
 
-  <div class="buttons">
-    <button onclick="showForm('takeForm')">Take Insurance</button>
-    <button onclick="showForm('claimForm')">Make a Claim</button>
+  <div class="container">
+    <h2>Protect Your Crypto Transactions</h2>
+    <p>Register your transaction for insurance coverage or file a claim if you suspect fraud. We're here to secure your digital assets.</p>
+
+    <div class="buttons">
+      <button onclick="showForm('takeForm')">Take Insurance</button>
+      <button onclick="showForm('claimForm')">Make a Claim</button>
+    </div>
+
+    <div id="takeForm" class="form">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">Loading…</iframe>
+    </div>
+
+    <div id="claimForm" class="form">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true">Loading…</iframe>
+    </div>
+
+    <div class="info-section">
+      <h3>💼 Coverage & Contact Info</h3>
+      <p><strong>Coverage Fee:</strong> <span class="highlight">1%</span> of the insured amount.</p>
+      <p><strong>Example:</strong> If you insure $500, the fee is just $5.</p>
+      <p><strong>Email:</strong> <a href="mailto:chagarioliver@gmail.com">chagarioliver@gmail.com</a></p>
+      <p><strong>Phone:</strong> +254742584625</p>
+    </div>
   </div>
-
-  <div id="takeForm" class="form">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">Loading…</iframe>
-  </div>
-
-  <div id="claimForm" class="form">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true">Loading…</iframe>
-  </div>
-
-  <section class="info-section">
-    <h2>💼 Contact & Pricing Information</h2>
-    <p><strong>Coverage Fee:</strong> We charge <span class="highlight">1%</span> of the total insured crypto transaction.</p>
-    <p><strong>Example:</strong> If you're insuring $500, your fee will be just $5.</p>
-    <p><strong>Email:</strong> <a href="mailto:chagarioliver@gmail.com">chagarioliver@gmail.com</a></p>
-    <p><strong>Phone:</strong> +254742584625</p>
-  </section>
 
   <script>
     function showForm(formId) {
