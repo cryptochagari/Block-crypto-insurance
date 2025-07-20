@@ -1,163 +1,139 @@
-/* GitHub-inspired info section with a modern, techy aesthetic */
+/* AliExpress-inspired info section with vibrant, e-commerce styling */
 .info-section {
-  background: linear-gradient(145deg, #0d1117 0%, #161b22 100%); /* GitHub's dark theme colors */
-  padding: 2.5rem;
-  border-radius: 10px; /* GitHub-like rounded corners */
-  color: #c9d1d9; /* GitHub's text color for readability */
-  font-family: 'Source Code Pro', monospace; /* Monospaced font for code vibe */
-  margin: 3rem auto;
-  max-width: 960px; /* Optimized for content width */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 0 12px rgba(88, 166, 255, 0.1); /* Subtle neon glow */
+  background: #ffffff; /* AliExpress’s clean white background */
+  padding: 2rem;
+  border-radius: 8px; /* Softer, modern corners */
+  color: #333333; /* Dark text for contrast */
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif; /* AliExpress-like font */
+  margin: 2rem auto;
+  max-width: 1200px; /* Wide but controlled for content */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(88, 166, 255, 0.2); /* GitHub-like border */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover effect for interactivity */
 .info-section:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), inset 0 0 14px rgba(88, 166, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
 }
 
-/* Subtle animated background effect mimicking code flow */
+/* Subtle accent border inspired by AliExpress’s vibrant style */
 .info-section::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.1), transparent);
-  animation: codeFlow 4s linear infinite;
-  z-index: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6a00, #ff3d00); /* AliExpress orange-red gradient */
+  z-index: 1;
 }
 
 /* Ensure content stays above pseudo-element */
 .info-section > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-/* Heading with a GitHub-inspired neon glow */
+/* Heading with bold, AliExpress-inspired styling */
 .info-section h2 {
-  font-family: 'Fira Code', monospace; /* Code-friendly font */
-  font-size: clamp(1.7rem, 4.5vw, 2rem);
-  margin-bottom: 1.5rem;
-  color: transparent;
-  background: linear-gradient(90deg, #58a6ff, #36d1dc); /* GitHub blue to cyan */
-  -webkit-background-clip: text;
-  background-clip: text;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 10px rgba(88, 166, 255, 0.5); /* Neon glow effect */
-  animation: fadeIn 0.7s ease-out;
+  font-family: 'Montserrat', sans-serif; /* Bold, modern font */
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  color: #ff6a00; /* AliExpress’s signature orange */
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  animation: slideIn 0.5s ease-out;
 }
 
-/* Paragraphs styled like code comments */
+/* Paragraphs for clean, readable content */
 .info-section p {
-  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  line-height: 1.6;
+  color: #555555; /* Softer dark for readability */
   margin-bottom: 1rem;
-  color: #8b949e; /* GitHub's comment-like color */
-  animation: fadeIn 0.9s ease-out 0.2s both;
+  animation: slideIn 0.7s ease-out 0.1s both;
 }
 
-/* Highlight styled like GitHub's syntax highlighting */
+/* Highlight with AliExpress’s vibrant accent */
 .info-section .highlight {
-  color: #f0c674; /* GitHub's yellow for keywords */
-  font-weight: 500;
-  background: rgba(240, 198, 116, 0.15); /* Subtle code highlight */
-  padding: 0.15rem 0.5rem;
+  color: #ffffff;
+  background: #ff6a00; /* AliExpress orange */
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
   border-radius: 4px;
-  box-shadow: 0 0 6px rgba(240, 198, 116, 0.3);
   transition: background 0.3s ease;
 }
 
 .info-section .highlight:hover {
-  background: rgba(240, 198, 116, 0.25);
+  background: #e65c00; /* Darker orange on hover */
 }
 
-/* Keyframe animations */
-@keyframes codeFlow {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Keyframe animations for smooth entrance */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .info-section {
     padding: 1.5rem;
-    margin: 2rem 0.75rem;
-    border-radius: 8px;
+    margin: 1.5rem 1rem;
+    border-radius: 6px;
   }
 
   .info-section h2 {
-    font-size: clamp(1.4rem, 4vw, 1.7rem);
-    letter-spacing: 1px;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
   }
 
   .info-section p {
     font-size: clamp(0.9rem, 2.2vw, 1rem);
-    line-height: 1.6;
   }
 }
 
 /* Accessibility: High-contrast mode */
 @media (prefers-contrast: high) {
   .info-section {
-    background: #000000;
-    border: 1px solid #ffffff;
-    color: #ffffff;
+    background: #ffffff;
+    border: 2px solid #000000;
     box-shadow: none;
   }
 
   .info-section h2 {
-    background: none;
-    color: #ffffff;
-    text-shadow: none;
+    color: #000000;
   }
 
   .info-section p {
-    color: #ffffff;
+    color: #000000;
   }
 
   .info-section .highlight {
-    color: #ffff00;
-    background: none;
-    box-shadow: none;
+    background: #000000;
+    color: #ffffff;
   }
 }
 
-/* Light mode for GitHub-like light theme */
-@media (prefers-color-scheme: light) {
+/* Dark mode support (optional, as AliExpress is light-themed) */
+@media (prefers-color-scheme: dark) {
   .info-section {
-    background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%);
-    color: #24292e; /* GitHub light mode text */
-    border: 1px solid rgba(88, 166, 255, 0.3);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background: #1a1a1a;
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   }
 
   .info-section h2 {
-    background: linear-gradient(90deg, #0366d6, #28a745); /* GitHub blue to green */
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: none;
+    color: #ff6a00;
   }
 
   .info-section p {
-    color: #586069; /* GitHub light mode secondary text */
+    color: #cccccc;
   }
 
   .info-section .highlight {
-    color: #d73a49; /* GitHub red for emphasis */
-    background: rgba(215, 58, 73, 0.1);
-    box-shadow: 0 0 6px rgba(215, 58, 73, 0.2);
+    background: #ff6a00;
+    color: #ffffff;
   }
 }
