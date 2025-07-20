@@ -2,100 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CryptoShield Insurance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9fb;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
       color: #222;
     }
 
     header {
-      background: linear-gradient(90deg, #111 0%, #333 100%);
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
+      background-color: #0a0a23;
+      padding: 1rem 2rem;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 36px;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
     }
 
-    header p {
-      margin: 8px 0 0;
-      font-size: 18px;
-      color: #bbb;
+    nav a {
+      color: #fff;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    .form-container {
-      max-width: 950px;
-      margin: 40px auto;
-      padding: 30px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    nav a:hover {
+      text-decoration: underline;
     }
 
-    .form-container h2 {
-      font-size: 28px;
-      margin-bottom: 25px;
-      color: #0077cc;
+    .hero {
       text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(to right, #4a00e0, #8e2de2);
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: auto;
     }
 
     iframe {
       width: 100%;
-      height: 1850px;
       border: none;
+      height: 1300px;
       border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     }
 
     footer {
+      background-color: #0a0a23;
+      color: white;
       text-align: center;
-      padding: 25px 10px;
-      background-color: #f1f1f1;
-      color: #777;
-      font-size: 15px;
-      margin-top: 40px;
-    }
-
-    @media screen and (max-width: 768px) {
-      header h1 {
-        font-size: 28px;
-      }
-
-      .form-container {
-        margin: 20px 10px;
-        padding: 20px;
-      }
-
-      iframe {
-        height: 2000px;
-      }
+      padding: 1.5rem 0;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>CryptoShield Insurance</h1>
-    <p>Protect Your Crypto. Insure Against Scams.</p>
+    <nav>
+      <a href="#register">Register</a>
+      <a href="#claim">Claim</a>
+      <a href="#about">About</a>
+    </nav>
   </header>
 
-  <section class="form-container">
-    <h2>Submit Your Claim or Take Insurance</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">
-      Loading…
-    </iframe>
+  <section class="hero">
+    <h2>Scam Protection. Peace of Mind.</h2>
+    <p>Register and get insured instantly. Submit a claim if anything goes wrong. We’re here to protect your crypto transactions.</p>
+  </section>
+
+  <section id="register" class="section">
+    <h2 style="margin-bottom:1rem;">Register for Crypto Insurance</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">Loading…</iframe>
+  </section>
+
+  <section id="claim" class="section">
+    <h2 style="margin-bottom:1rem;">Submit a Claim</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">Loading…</iframe>
+  </section>
+
+  <section id="about" class="section">
+    <h2 style="margin-bottom:1rem;">About CryptoShield</h2>
+    <p>CryptoShield Insurance offers decentralized scam protection. We secure your transactions with trustless methods and transparent coverage. Every crypto trader deserves peace of mind. Join us and be protected.</p>
   </section>
 
   <footer>
-    &copy; 2025 CryptoShield Insurance. Designed for peace of mind.
+    &copy; 2025 CryptoShield Insurance. All rights reserved.
   </footer>
-
 </body>
 </html>
