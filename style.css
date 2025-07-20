@@ -2,39 +2,62 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
+  background: #f4f4f4;
   color: #333;
 }
+
 header {
-  background-color: #1a1a1a;
+  background: #222;
   color: white;
-  padding: 20px;
+  text-align: center;
+  padding: 2em 1em;
+}
+
+.logo {
+  width: 80px;
+}
+
+.hero {
+  padding: 2em;
+  background: #4a00e0;
+  color: white;
   text-align: center;
 }
-main {
-  padding: 20px;
+
+.hero .btn {
+  background: #fff;
+  color: #4a00e0;
+  padding: 0.7em 1.5em;
+  text-decoration: none;
+  border-radius: 5px;
 }
+
 section {
-  background: white;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 2em;
+  max-width: 600px;
+  margin: auto;
 }
+
+form input, form textarea {
+  width: 100%;
+  padding: 1em;
+  margin: 0.5em 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 button {
-  padding: 10px 20px;
-  background-color: #0077cc;
+  background: #4a00e0;
   color: white;
   border: none;
+  padding: 1em;
   border-radius: 5px;
   cursor: pointer;
 }
-button:hover {
-  background-color: #005fa3;
-}
+
 footer {
-  background-color: #1a1a1a;
-  color: white;
   text-align: center;
-  padding: 10px;
+  padding: 1em;
+  background: #222;
+  color: white;
 }
