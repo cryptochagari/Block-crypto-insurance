@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CryptoShield – Scam Protection</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <img src="assets/logo.png" alt="CryptoShield Logo" class="logo">
+    <img src="assets/logo.png" alt="CryptoShield Logo" class="logo" />
     <h1>CryptoShield</h1>
     <p>Your Shield Against Crypto Scams</p>
   </header>
@@ -19,23 +19,33 @@
     <a href="#claimForm" class="btn">Start a Claim</a>
   </section>
 
+  <!-- COMBINED FORM BELOW -->
   <section id="claimForm">
     <h3>Submit a Claim</h3>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="text" placeholder="Wallet Address" required>
-      <input type="text" placeholder="Scammer Wallet Address">
-      <input type="date" required>
-      <textarea placeholder="Describe the scam..." required></textarea>
-      <button type="submit">Submit</button>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="wallet_address" placeholder="Your Wallet Address" required />
+      <input type="text" name="scammer_wallet" placeholder="Scammer Wallet Address" />
+      <input type="text" name="transaction_id" placeholder="Transaction ID" />
+      <input type="date" name="scam_date" required />
+      <textarea name="message" placeholder="Describe the scam..." required></textarea>
+      <button type="submit">Submit Claim</button>
     </form>
   </section>
 
+  <!-- Optional Tracker -->
   <section id="tracker">
     <h3>Track a Claim</h3>
     <p>Enter your Claim ID:</p>
-    <input type="text" placeholder="CS-XXXXXX">
+    <input type="text" placeholder="CS-XXXXXX" />
     <button>Check Status</button>
+  </section>
+
+  <!-- WhatsApp Contact (Optional) -->
+  <section id="contact">
+    <h3>Need Urgent Help?</h3>
+    <a href="https://wa.me/254742584625?text=I%20need%20help%20with%20a%20crypto%20scam%20claim" class="btn" target="_blank">Chat on WhatsApp</a>
   </section>
 
   <footer>
@@ -45,16 +55,7 @@
   <script src="script.js"></script>
 </body>
 </html>
-<section id="report">
-  <h2>Report a Scam</h2>
-  <form action="https://formspree.io/f/your-form-id" method="POST">
-    <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Your email" required>
-    <input type="text" name="transaction_id" placeholder="Transaction ID" required>
-    <textarea name="message" placeholder="Describe the scam..." required></textarea>
-    <button type="submit">Submit Claim</button>
-  </form>
-</section>
+
 
 
     
