@@ -1,73 +1,163 @@
+/* Styling the info section with a modern, vibrant look */
 .info-section {
-  background: #1e1e2f;
-  padding: 2rem; /* Switched to rem for scalability */
-  border-radius: 12px;
-  color: #fff;
-  font-family: 'Open Sans', sans-serif;
-  margin: 2.5rem auto; /* Centered with auto margins */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  max-width: 1200px; /* Prevent overly wide sections */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  background: linear-gradient(135deg, #1e1e2f 0%, #2a2a4a 100%); /* Subtle gradient */
+  padding: 2.5rem;
+  border-radius: 16px; /* Softer corners */
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* Modern font stack */
+  margin: 3rem auto;
+  max-width: 1000px; /* Slightly narrower for elegance */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.1); /* Glassmorphism-inspired shadow */
+  position: relative; /* For pseudo-elements or animations */
+  overflow: hidden; /* Prevent content overflow */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Hover effect for interactivity */
 .info-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtle background animation */
+.info-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30%, rgba(0, 255, 213, 0.15), transparent 70%);
+  opacity: 0.5;
+  z-index: 0;
+  animation: pulse 8s infinite ease-in-out;
+}
+
+/* Ensure content stays above pseudo-element */
+.info-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .info-section h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(1.5rem, 4vw, 1.8rem); /* Responsive font size */
-  margin-bottom: 1.25rem;
+  font-family: 'Poppins', sans-serif; /* Bold, modern font */
+  font-size: clamp(1.8rem, 5vw, 2.2rem); /* Larger, responsive heading */
+  margin-bottom: 1.5rem;
   color: #00ffd5;
-  text-transform: uppercase; /* Adds futuristic vibe */
-  letter-spacing: 1px; /* Enhances readability */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #00ffd5, #00b4d8); /* Gradient text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fadeInUp 0.6s ease-out;
 }
 
+/* Paragraph styling for clarity and elegance */
 .info-section p {
-  font-size: clamp(1rem, 2.5vw, 1.1rem); /* Responsive text */
-  line-height: 1.6; /* Improved readability */
-  margin-bottom: 0.75rem;
+  font-size: clamp(1rem, 2.8vw, 1.15rem);
+  line-height: 1.8; /* Spacious for readability */
+  margin-bottom: 1rem;
+  color: #e0e0e0; /* Softer white for text */
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
+/* Highlight styling with a glowing effect */
 .info-section .highlight {
   color: #ffcc00;
-  font-weight: 700;
-  background: rgba(255, 204, 0, 0.1); /* Subtle background for emphasis */
-  padding: 2px 4px; /* Slight padding for highlight */
-  border-radius: 4px; /* Rounded corners for highlight */
+  font-weight: 600;
+  background: linear-gradient(90deg, #ffcc00, #ff9500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.4); /* Subtle glow */
+}
+
+/* Keyframe animations */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .info-section {
     padding: 1.5rem;
-    margin: 1.5rem 1rem;
+    margin: 2rem 1rem;
+    border-radius: 12px;
   }
 
   .info-section h2 {
-    font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    letter-spacing: 1.5px;
   }
 
   .info-section p {
-    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    line-height: 1.6;
   }
 }
 
-/* High-contrast mode for accessibility */
+/* Accessibility: High-contrast mode */
 @media (prefers-contrast: high) {
   .info-section {
-    background: #000;
-    color: #fff;
+    background: #000000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   }
 
   .info-section h2 {
+    background: none;
     color: #00ffcc;
   }
 
+  .info-section p {
+    color: #ffffff;
+  }
+
   .info-section .highlight {
+    background: none;
     color: #ffff00;
-    background: rgba(255, 255, 0, 0.2);
+    box-shadow: none;
+  }
+}
+
+/* Light mode support */
+@media (prefers-color-scheme: light) {
+  .info-section {
+    background: linear-gradient(135deg, #f0f0ff 0%, #e0e0ff 100%);
+    color: #1e1e2f;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .info-section h2 {
+    background: linear-gradient(90deg, #007bff, #00b4d8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .info-section p {
+    color: #333333;
+  }
+
+  .info-section .highlight {
+    background: linear-gradient(90deg, #e67e22, #ff9500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    box-shadow: 0 0 8px rgba(230, 126, 34, 0.3);
   }
 }
