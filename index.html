@@ -6,103 +6,94 @@
   <title>CryptoShield Insurance</title>
   <style>
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f0f0f;
-      color: #f5f5f5;
+      background: #f8f9fb;
+      color: #333;
     }
 
     header {
-      background: #121212;
+      background: #101820;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
       padding: 1.5rem;
-      text-align: center;
-      box-shadow: 0 0 15px #00ffd5;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      color: #00ffd5;
-    }
-
-    .container {
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .button-group {
-      margin: 2rem 0;
-    }
-
-    .button-group button {
-      background: linear-gradient(145deg, #00ffd5, #0088ff);
+    .tabs button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
       border: none;
-      color: #000;
-      padding: 0.75rem 1.5rem;
-      margin: 0 1rem;
-      font-size: 1.1rem;
+      background: #ff6b00;
+      color: white;
       border-radius: 30px;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    .button-group button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #00ffd5;
+    .tabs button:hover {
+      background: #e55e00;
     }
 
     iframe {
       width: 100%;
-      height: 1800px;
+      max-width: 700px;
+      height: 1000px;
       border: none;
       display: none;
-      margin-top: 2rem;
+      margin: auto;
+      padding: 2rem;
+      background: white;
     }
 
-    .footer {
-      margin-top: 3rem;
-      padding: 1rem;
-      background-color: #121212;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
+    .active {
+      display: block !important;
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        height: 1200px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>CryptoShield Insurance</h1>
-  </header>
+  <header>🛡️ CryptoShield Insurance</header>
 
-  <div class="container">
-    <p>Protect your crypto transactions with CryptoShield Insurance.<br> Register a wallet or file a claim instantly.</p>
-
-    <div class="button-group">
-      <button onclick="toggleForm('registerForm')">Register</button>
-      <button onclick="toggleForm('claimForm')">File a Claim</button>
-    </div>
-
-    <!-- Register Form -->
-    <iframe id="registerForm" src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true"></iframe>
-
-    <!-- Claim Form -->
-    <iframe id="claimForm" src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true"></iframe>
+  <div class="tabs">
+    <button onclick="showForm('insurance')">Take Insurance</button>
+    <button onclick="showForm('claim')">Make a Claim</button>
   </div>
 
-  <div class="footer">
-    &copy; 2025 CryptoShield. All rights reserved.
+  <div id="insurance" class="form-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true"></iframe>
+  </div>
+
+  <div id="claim" class="form-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true"></iframe>
   </div>
 
   <script>
-    function toggleForm(formId) {
-      const forms = ['registerForm', 'claimForm'];
-      forms.forEach(id => {
-        document.getElementById(id).style.display = id === formId ? 'block' : 'none';
-      });
-      window.scrollTo(0, document.getElementById(formId).offsetTop - 100);
-    }
-  </script>
+    function showForm(type) {
+      document.getElementById('insurance').querySelector('iframe').classList.remove('active');
+      document.getElementById('claim').querySelector('iframe').classList.remove('active');
 
+      document.getElementById(type).querySelector('iframe').classList.add('active');
+    }
+
+    // Show insurance by default
+    window.onload = () => showForm('insurance');
+  </script>
 </body>
 </html>
