@@ -8,66 +8,73 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
+      background-color: #f9f9fb;
+      color: #222;
     }
 
     header {
-      background-color: #111;
+      background: linear-gradient(90deg, #111 0%, #333 100%);
       color: white;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 36px;
+      letter-spacing: 1px;
     }
 
     header p {
-      margin: 5px 0 0;
-      font-size: 16px;
-      color: #ccc;
+      margin: 8px 0 0;
+      font-size: 18px;
+      color: #bbb;
     }
 
-    .form-section {
-      max-width: 900px;
+    .form-container {
+      max-width: 950px;
       margin: 40px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .form-section h2 {
+    .form-container h2 {
       font-size: 28px;
-      margin-bottom: 20px;
-      color: #0071e3;
+      margin-bottom: 25px;
+      color: #0077cc;
       text-align: center;
     }
 
     iframe {
       width: 100%;
-      height: 1800px;
+      height: 1850px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 14px;
+      padding: 25px 10px;
       background-color: #f1f1f1;
-      color: #888;
+      color: #777;
+      font-size: 15px;
+      margin-top: 40px;
     }
 
-    @media (max-width: 768px) {
-      .form-section {
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 28px;
+      }
+
+      .form-container {
         margin: 20px 10px;
+        padding: 20px;
       }
 
       iframe {
-        height: 1900px;
+        height: 2000px;
       }
     }
   </style>
@@ -76,18 +83,19 @@
 
   <header>
     <h1>CryptoShield Insurance</h1>
-    <p>Scam Protection You Can Trust</p>
+    <p>Protect Your Crypto. Insure Against Scams.</p>
   </header>
 
-  <section class="form-section">
-    <h2>Submit Your Insurance Claim</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">Loading…</iframe>
+  <section class="form-container">
+    <h2>Submit Your Claim or Take Insurance</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">
+      Loading…
+    </iframe>
   </section>
 
   <footer>
-    &copy; 2025 CryptoShield Insurance. All rights reserved.
+    &copy; 2025 CryptoShield Insurance. Designed for peace of mind.
   </footer>
 
 </body>
 </html>
-
