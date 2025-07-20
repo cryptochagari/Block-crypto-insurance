@@ -7,93 +7,100 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
       margin: 0;
-      background: #f8f9fb;
-      color: #333;
+      padding: 0;
     }
-
     header {
-      background: #101820;
-      padding: 1rem;
-      color: white;
+      background-color: #101820;
+      color: #ffffff;
       text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
+      padding: 2rem 1rem;
     }
-
-    .tabs {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1.5rem;
-      background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    h1 {
+      margin: 0;
+      font-size: 2rem;
     }
-
-    .tabs button {
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      background: #ff6b00;
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    .button-group {
+      margin-bottom: 2rem;
+    }
+    button {
+      background-color: #ff6f00;
       color: white;
-      border-radius: 30px;
+      border: none;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s ease;
     }
-
-    .tabs button:hover {
-      background: #e55e00;
+    button:hover {
+      background-color: #e65c00;
     }
-
     iframe {
       width: 100%;
-      max-width: 700px;
       height: 1000px;
       border: none;
       display: none;
-      margin: auto;
-      padding: 2rem;
-      background: white;
     }
-
-    .active {
-      display: block !important;
+    iframe.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
     }
-
-    @media (max-width: 768px) {
-      iframe {
-        height: 1200px;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>CryptoShield Insurance</h1>
+    <p>Secure your crypto, claim with confidence</p>
+  </header>
 
-  <header>🛡️ CryptoShield Insurance</header>
+  <div class="container">
+    <div class="button-group">
+      <button onclick="showForm('insurance')">Take Insurance</button>
+      <button onclick="showForm('claim')">Make a Claim</button>
+    </div>
 
-  <div class="tabs">
-    <button onclick="showForm('insurance')">Take Insurance</button>
-    <button onclick="showForm('claim')">Make a Claim</button>
-  </div>
+    <!-- Insurance Form -->
+    <iframe
+      id="insuranceForm"
+      class="form-frame"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">
+    </iframe>
 
-  <div id="insurance" class="form-container">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true"></iframe>
-  </div>
-
-  <div id="claim" class="form-container">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true"></iframe>
+    <!-- Claim Form -->
+    <iframe
+      id="claimForm"
+      class="form-frame"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true">
+    </iframe>
   </div>
 
   <script>
-    function showForm(type) {
-      document.getElementById('insurance').querySelector('iframe').classList.remove('active');
-      document.getElementById('claim').querySelector('iframe').classList.remove('active');
+    function showForm(formType) {
+      const insuranceForm = document.getElementById('insuranceForm');
+      const claimForm = document.getElementById('claimForm');
 
-      document.getElementById(type).querySelector('iframe').classList.add('active');
+      insuranceForm.classList.remove('active');
+      claimForm.classList.remove('active');
+
+      if (formType === 'insurance') {
+        insuranceForm.classList.add('active');
+      } else if (formType === 'claim') {
+        claimForm.classList.add('active');
+      }
     }
-
-    // Show insurance by default
-    window.onload = () => showForm('insurance');
   </script>
 </body>
 </html>
