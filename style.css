@@ -1,55 +1,73 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #00c9ff, #92fe9d); /* Colorful gradient */
-  color: #333;
-  text-align: center;
-  padding: 20px;
+.info-section {
+  background: #1e1e2f;
+  padding: 2rem; /* Switched to rem for scalability */
+  border-radius: 12px;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  margin: 2.5rem auto; /* Centered with auto margins */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 1200px; /* Prevent overly wide sections */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+/* Hover effect for interactivity */
+.info-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
+.info-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 1.8rem); /* Responsive font size */
+  margin-bottom: 1.25rem;
+  color: #00ffd5;
+  text-transform: uppercase; /* Adds futuristic vibe */
+  letter-spacing: 1px; /* Enhances readability */
 }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
+.info-section p {
+  font-size: clamp(1rem, 2.5vw, 1.1rem); /* Responsive text */
+  line-height: 1.6; /* Improved readability */
+  margin-bottom: 0.75rem;
 }
 
-button {
-  padding: 12px 24px;
-  font-size: 1em;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #004aad;
-  color: white;
-  transition: background-color 0.3s ease;
+.info-section .highlight {
+  color: #ffcc00;
+  font-weight: 700;
+  background: rgba(255, 204, 0, 0.1); /* Subtle background for emphasis */
+  padding: 2px 4px; /* Slight padding for highlight */
+  border-radius: 4px; /* Rounded corners for highlight */
 }
 
-button:hover {
-  background-color: #002d6e;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .info-section {
+    padding: 1.5rem;
+    margin: 1.5rem 1rem;
+  }
+
+  .info-section h2 {
+    font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+  }
+
+  .info-section p {
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+  }
 }
 
-.form-container {
-  display: none;
-  max-width: 800px;
-  margin: 0 auto;
-}
+/* High-contrast mode for accessibility */
+@media (prefers-contrast: high) {
+  .info-section {
+    background: #000;
+    color: #fff;
+  }
 
-iframe {
-  width: 100%;
-  height: 800px;
-  border: none;
-  margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .info-section h2 {
+    color: #00ffcc;
+  }
+
+  .info-section .highlight {
+    color: #ffff00;
+    background: rgba(255, 255, 0, 0.2);
+  }
 }
