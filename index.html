@@ -2,64 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CryptoShield Insurance – Scam Protection</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CryptoShield Insurance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h2 {
+      color: #222;
+      border-left: 5px solid #0a0;
+      padding-left: 10px;
+    }
+
+    form {
+      max-width: 500px;
+      background: white;
+      padding: 20px;
+      margin: 30px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #0a0;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #080;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="assets/logo.png" alt="CryptoShield Logo" class="logo" />
-    <h1>CryptoShield Insurance</h1>
-    <p>Your Digital Armor<br><span style="font-size: 1.2em;">Scam Protection for Every Transaction</span></p>
-  </header>
 
-  <section class="hero">
-    <h2>Secure Your Crypto Today</h2>
-    <p>Get insured, report a scam, or track your claim with ease.</p>
-    <a href="#claimForm" class="btn">Submit a Claim</a>
-    <a href="#insuranceForm" class="btn secondary">Take Insurance</a>
-  </section>
+  <h2>Report a Scam</h2>
+  <form action="https://formspree.io/f/mjkogwpo" method="POST">
+    <label for="name">Your Name:</label>
+    <input type="text" name="name" required>
 
-  <section id="insuranceForm">
-    <h3>Register for Crypto Insurance</h3>
-    <form action="https://formspree.io/f/mjkogwpo" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="text" name="wallet" placeholder="Your Wallet Address" required />
-      <select name="coverage" required>
-        <option value="">Select Coverage Amount</option>
-        <option value="$100">Up to $100</option>
-        <option value="$1,000">Up to $1,000</option>
-        <option value="$10,000">Up to $10,000</option>
-      </select>
-      <button type="submit">Register Now</button>
-    </form>
-  </section>
+    <label for="email">Your Email:</label>
+    <input type="email" name="email" required>
 
-  <section id="claimForm">
-    <h3>Submit a Claim</h3>
-    <form action="https://formspree.io/f/mjkogwpo" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="text" name="wallet" placeholder="Your Wallet Address" required />
-      <input type="text" name="scammer_wallet" placeholder="Scammer Wallet Address" />
-      <input type="date" name="date" required />
-      <textarea name="details" placeholder="Describe the scam..." required></textarea>
-      <button type="submit">Submit Claim</button>
-    </form>
-  </section>
+    <label for="transaction">Transaction Details:</label>
+    <textarea name="transaction" rows="4" required></textarea>
 
-  <section id="tracker">
-    <h3>Track a Claim</h3>
-    <p>Enter your Claim ID:</p>
-    <input type="text" placeholder="CS-XXXXXX" />
-    <button>Check Status</button>
-  </section>
+    <label for="wallet">Your Wallet Address:</label>
+    <input type="text" name="wallet" required>
 
-  <footer>
-    <p>&copy; 2025 CryptoShield Insurance. Built to protect your crypto.</p>
-  </footer>
+    <label for="scammer">Scammer Info (if known):</label>
+    <input type="text" name="scammer">
 
-  <script src="script.js"></script>
+    <button type="submit">Submit Scam Report</button>
+  </form>
+
+  <h2>Take CryptoShield Insurance</h2>
+  <form action="https://formspree.io/f/mjkogwpo" method="POST">
+    <label for="fullname">Full Name:</label>
+    <input type="text" name="fullname" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" name="email" required>
+
+    <label for="wallet">Wallet Address:</label>
+    <input type="text" name="wallet" required>
+
+    <label for="cover">Amount You Want to Insure (USD):</label>
+    <input type="number" name="cover" required>
+
+    <label for="plan">Select Plan:</label>
+    <select name="plan" required>
+      <option value="basic">Basic (Up to $1,000)</option>
+      <option value="premium">Premium (Up to $10,000)</option>
+      <option value="elite">Elite ($10,000+)</option>
+    </select>
+
+    <label for="notes">Additional Notes (optional):</label>
+    <textarea name="notes" rows="3"></textarea>
+
+    <button type="submit">Register for Insurance</button>
+  </form>
+
 </body>
 </html>
