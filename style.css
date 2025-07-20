@@ -1,36 +1,36 @@
-/* Styling the info section with a modern, vibrant look */
+/* GitHub-inspired info section with a modern, techy aesthetic */
 .info-section {
-  background: linear-gradient(135deg, #1e1e2f 0%, #2a2a4a 100%); /* Subtle gradient */
+  background: linear-gradient(145deg, #0d1117 0%, #161b22 100%); /* GitHub's dark theme colors */
   padding: 2.5rem;
-  border-radius: 16px; /* Softer corners */
-  color: #ffffff;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* Modern font stack */
+  border-radius: 10px; /* GitHub-like rounded corners */
+  color: #c9d1d9; /* GitHub's text color for readability */
+  font-family: 'Source Code Pro', monospace; /* Monospaced font for code vibe */
   margin: 3rem auto;
-  max-width: 1000px; /* Slightly narrower for elegance */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.1); /* Glassmorphism-inspired shadow */
-  position: relative; /* For pseudo-elements or animations */
-  overflow: hidden; /* Prevent content overflow */
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 960px; /* Optimized for content width */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 0 12px rgba(88, 166, 255, 0.1); /* Subtle neon glow */
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(88, 166, 255, 0.2); /* GitHub-like border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover effect for interactivity */
 .info-section:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), inset 0 0 14px rgba(88, 166, 255, 0.15);
 }
 
-/* Subtle background animation */
+/* Subtle animated background effect mimicking code flow */
 .info-section::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: -100%;
+  width: 200%;
   height: 100%;
-  background: radial-gradient(circle at 30%, rgba(0, 255, 213, 0.15), transparent 70%);
-  opacity: 0.5;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.1), transparent);
+  animation: codeFlow 4s linear infinite;
   z-index: 0;
-  animation: pulse 8s infinite ease-in-out;
 }
 
 /* Ensure content stays above pseudo-element */
@@ -39,74 +39,71 @@
   z-index: 1;
 }
 
+/* Heading with a GitHub-inspired neon glow */
 .info-section h2 {
-  font-family: 'Poppins', sans-serif; /* Bold, modern font */
-  font-size: clamp(1.8rem, 5vw, 2.2rem); /* Larger, responsive heading */
+  font-family: 'Fira Code', monospace; /* Code-friendly font */
+  font-size: clamp(1.7rem, 4.5vw, 2rem);
   margin-bottom: 1.5rem;
-  color: #00ffd5;
+  color: transparent;
+  background: linear-gradient(90deg, #58a6ff, #36d1dc); /* GitHub blue to cyan */
+  -webkit-background-clip: text;
+  background-clip: text;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  background: linear-gradient(90deg, #00ffd5, #00b4d8); /* Gradient text */
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: fadeInUp 0.6s ease-out;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 10px rgba(88, 166, 255, 0.5); /* Neon glow effect */
+  animation: fadeIn 0.7s ease-out;
 }
 
-/* Paragraph styling for clarity and elegance */
+/* Paragraphs styled like code comments */
 .info-section p {
-  font-size: clamp(1rem, 2.8vw, 1.15rem);
-  line-height: 1.8; /* Spacious for readability */
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.7;
   margin-bottom: 1rem;
-  color: #e0e0e0; /* Softer white for text */
-  animation: fadeInUp 0.8s ease-out 0.2s both;
+  color: #8b949e; /* GitHub's comment-like color */
+  animation: fadeIn 0.9s ease-out 0.2s both;
 }
 
-/* Highlight styling with a glowing effect */
+/* Highlight styled like GitHub's syntax highlighting */
 .info-section .highlight {
-  color: #ffcc00;
-  font-weight: 600;
-  background: linear-gradient(90deg, #ffcc00, #ff9500);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding: 0.2rem 0.4rem;
-  border-radius: 6px;
-  box-shadow: 0 0 8px rgba(255, 204, 0, 0.4); /* Subtle glow */
+  color: #f0c674; /* GitHub's yellow for keywords */
+  font-weight: 500;
+  background: rgba(240, 198, 116, 0.15); /* Subtle code highlight */
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(240, 198, 116, 0.3);
+  transition: background 0.3s ease;
+}
+
+.info-section .highlight:hover {
+  background: rgba(240, 198, 116, 0.25);
 }
 
 /* Keyframe animations */
-@keyframes pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.8; }
+@keyframes codeFlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .info-section {
     padding: 1.5rem;
-    margin: 2rem 1rem;
-    border-radius: 12px;
+    margin: 2rem 0.75rem;
+    border-radius: 8px;
   }
 
   .info-section h2 {
-    font-size: clamp(1.5rem, 4vw, 1.8rem);
-    letter-spacing: 1.5px;
+    font-size: clamp(1.4rem, 4vw, 1.7rem);
+    letter-spacing: 1px;
   }
 
   .info-section p {
-    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
     line-height: 1.6;
   }
 }
@@ -115,12 +112,15 @@
 @media (prefers-contrast: high) {
   .info-section {
     background: #000000;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    box-shadow: none;
   }
 
   .info-section h2 {
     background: none;
-    color: #00ffcc;
+    color: #ffffff;
+    text-shadow: none;
   }
 
   .info-section p {
@@ -128,36 +128,36 @@
   }
 
   .info-section .highlight {
-    background: none;
     color: #ffff00;
+    background: none;
     box-shadow: none;
   }
 }
 
-/* Light mode support */
+/* Light mode for GitHub-like light theme */
 @media (prefers-color-scheme: light) {
   .info-section {
-    background: linear-gradient(135deg, #f0f0ff 0%, #e0e0ff 100%);
-    color: #1e1e2f;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%);
+    color: #24292e; /* GitHub light mode text */
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   }
 
   .info-section h2 {
-    background: linear-gradient(90deg, #007bff, #00b4d8);
+    background: linear-gradient(90deg, #0366d6, #28a745); /* GitHub blue to green */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    text-shadow: none;
   }
 
   .info-section p {
-    color: #333333;
+    color: #586069; /* GitHub light mode secondary text */
   }
 
   .info-section .highlight {
-    background: linear-gradient(90deg, #e67e22, #ff9500);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    box-shadow: 0 0 8px rgba(230, 126, 34, 0.3);
+    color: #d73a49; /* GitHub red for emphasis */
+    background: rgba(215, 58, 73, 0.1);
+    box-shadow: 0 0 6px rgba(215, 58, 73, 0.2);
   }
 }
