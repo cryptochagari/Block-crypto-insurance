@@ -6,78 +6,93 @@
   <title>CryptoShield Insurance</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f7f9;
       margin: 0;
-      padding: 0;
-      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #f5f5f5;
     }
+
     header {
-      background-color: #1e1e2f;
-      color: white;
-      padding: 2rem 1rem;
+      background: #121212;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 0 15px #00ffd5;
     }
-    h1 {
+
+    header h1 {
       margin: 0;
       font-size: 2rem;
+      color: #00ffd5;
     }
-    .tagline {
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      color: #c0c0c0;
+
+    .container {
+      padding: 2rem;
+      text-align: center;
     }
-    .button-container {
-      margin: 2rem auto;
+
+    .button-group {
+      margin: 2rem 0;
     }
-    .btn {
-      background-color: #0077ff;
+
+    .button-group button {
+      background: linear-gradient(145deg, #00ffd5, #0088ff);
       border: none;
-      color: white;
-      padding: 1rem 2rem;
-      margin: 1rem;
-      font-size: 1rem;
-      border-radius: 6px;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      margin: 0 1rem;
+      font-size: 1.1rem;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: 0.3s;
     }
-    .btn:hover {
-      background-color: #005fd1;
+
+    .button-group button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00ffd5;
     }
+
     iframe {
-      width: 90%;
-      height: 1000px;
+      width: 100%;
+      height: 1800px;
       border: none;
-      margin-top: 2rem;
       display: none;
+      margin-top: 2rem;
     }
-    footer {
-      background: #1e1e2f;
-      color: white;
+
+    .footer {
+      margin-top: 3rem;
       padding: 1rem;
+      background-color: #121212;
+      text-align: center;
       font-size: 0.9rem;
-      margin-top: 4rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>CryptoShield Insurance</h1>
-    <p class="tagline">Scam Protection for Crypto Transactions</p>
   </header>
 
-  <div class="button-container">
-    <button class="btn" onclick="toggleForm('registerForm')">Take Insurance</button>
-    <button class="btn" onclick="toggleForm('claimForm')">Submit Claim</button>
+  <div class="container">
+    <p>Protect your crypto transactions with CryptoShield Insurance.<br> Register a wallet or file a claim instantly.</p>
+
+    <div class="button-group">
+      <button onclick="toggleForm('registerForm')">Register</button>
+      <button onclick="toggleForm('claimForm')">File a Claim</button>
+    </div>
+
+    <!-- Register Form -->
+    <iframe id="registerForm" src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true"></iframe>
+
+    <!-- Claim Form -->
+    <iframe id="claimForm" src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true"></iframe>
   </div>
 
-  <!-- Replace these iframe src URLs with your actual Google Form embed links -->
-  <iframe id="registerForm" src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true" allowfullscreen></iframe>
-  
-  <iframe id="claimForm" src="https://docs.google.com/forms/d/e/1FAIpQLSf9YEXAMPLECLAIMFORMURL/viewform?embedded=true" allowfullscreen></iframe>
-
-  <footer>
-    &copy; 2025 CryptoShield Insurance. All rights reserved.
-  </footer>
+  <div class="footer">
+    &copy; 2025 CryptoShield. All rights reserved.
+  </div>
 
   <script>
     function toggleForm(formId) {
@@ -85,7 +100,9 @@
       forms.forEach(id => {
         document.getElementById(id).style.display = id === formId ? 'block' : 'none';
       });
+      window.scrollTo(0, document.getElementById(formId).offsetTop - 100);
     }
   </script>
+
 </body>
 </html>
