@@ -13,7 +13,7 @@
     }
 
     .container {
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
       background: #ffffff;
       padding: 30px;
@@ -23,7 +23,8 @@
 
     h2 {
       color: #222;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      text-align: center;
     }
 
     .checkbox-section {
@@ -31,37 +32,57 @@
     }
 
     label {
+      display: block;
       font-size: 1rem;
       color: #333;
+      margin-bottom: 10px;
+      cursor: pointer;
     }
 
-    #jotformForm {
+    .form-embed {
       display: none;
-      margin-top: 20px;
+      margin-top: 15px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>🛡️ CryptoShield Insurance</h2>
+    <h2>🛡️ CryptoShield Insurance Portal</h2>
 
     <div class="checkbox-section">
       <label>
-        <input type="checkbox" id="insuranceToggle" onchange="toggleJotform()" />
-        Tick to protect this transaction for just <strong>0.5%</strong>. We’ll cover you in case of fraud or scams.
+        <input type="checkbox" id="registerToggle" onchange="toggleForm('register')" />
+        ✅ Tick to protect your crypto transaction (0.5% coverage)
+      </label>
+
+      <label>
+        <input type="checkbox" id="claimToggle" onchange="toggleForm('claim')" />
+        📝 Tick if you want to file a scam or fraud claim
       </label>
     </div>
 
-    <div id="jotformForm">
+    <div id="registerForm" class="form-embed">
+      <h3>Registration Form</h3>
       <script type="text/javascript" src="https://form.jotform.com/jsform/252012991788061"></script>
+    </div>
+
+    <div id="claimForm" class="form-embed">
+      <h3>Claim Form</h3>
+      <script type="text/javascript" src="https://form.jotform.com/jsform/252031127842043"></script>
     </div>
   </div>
 
   <script>
-    function toggleJotform() {
-      const checkbox = document.getElementById("insuranceToggle");
-      const jotformDiv = document.getElementById("jotformForm");
-      jotformDiv.style.display = checkbox.checked ? "block" : "none";
+    function toggleForm(formType) {
+      const registerBox = document.getElementById("registerToggle");
+      const claimBox = document.getElementById("claimToggle");
+      const registerForm = document.getElementById("registerForm");
+      const claimForm = document.getElementById("claimForm");
+
+      registerForm.style.display = registerBox.checked ? "block" : "none";
+      claimForm.style.display = claimBox.checked ? "block" : "none";
     }
   </script>
 </body>
