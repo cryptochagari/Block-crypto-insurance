@@ -2,77 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CryptoShield Insurance</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #333;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1c1f2b, #2e3142);
+      color: #f0f0f0;
     }
 
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    h1 {
+    header {
+      padding: 2rem;
       text-align: center;
-      color: #0088cc;
+      background-color: #15171f;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
-    label {
-      font-weight: bold;
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #00e6a8;
     }
 
-    input, textarea {
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    .form-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #242636;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #15171f;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .form-container {
+        margin: 1rem;
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>CryptoShield Insurance</h1>
 
-    <!-- CRYPTOSHIELD INSURANCE BOX -->
-    <div style="background:#f0f4f8;padding:20px;border-radius:10px;margin-top:30px;border:1px solid #ccc;">
-      <h3>🛡️ Transaction Protection</h3>
-      <p>
-        <label>
-          <input type="checkbox" id="insuranceCheckbox" onchange="toggleInsuranceForm()" />
-          Tick to protect this transaction for just <strong>0.5%</strong>. We’ll cover you in case of fraud or scams.
-        </label>
-      </p>
+  <header>
+    <h1>CryptoShield Insurance Claim Form</h1>
+    <p>Your secure safety net for crypto transactions</p>
+  </header>
 
-      <form id="insuranceForm" style="display:none;" action="https://formspree.io/f/mjkogwpo" method="POST">
-        <input type="hidden" name="insurance_selected" value="yes" />
-
-        <label>Wallet Address:</label><br />
-        <input type="text" name="wallet_address" required style="width:100%;padding:8px;margin-bottom:10px;" />
-
-        <label>Transaction Hash:</label><br />
-        <input type="text" name="transaction_hash" required style="width:100%;padding:8px;margin-bottom:10px;" />
-
-        <label>Transaction Amount:</label><br />
-        <input type="text" name="amount" required style="width:100%;padding:8px;margin-bottom:10px;" />
-
-        <label>Email (for claim updates):</label><br />
-        <input type="email" name="email" required style="width:100%;padding:8px;margin-bottom:10px;" />
-
-        <button type="submit" style="padding:10px 20px;background:#0088cc;color:#fff;border:none;border-radius:5px;">Insure My Transaction</button>
-      </form>
-    </div>
+  <div class="form-container">
+    <!-- JotForm Embed -->
+    <script type="text/javascript" src="https://form.jotform.com/jsform/252012991788061"></script>
   </div>
 
-  <script>
-    function toggleInsuranceForm() {
-      const form = document.getElementById("insuranceForm");
-      const checkbox = document.getElementById("insuranceCheckbox");
-      form.style.display = checkbox.checked ? "block" : "none";
-    }
-  </script>
+  <footer>
+    &copy; 2025 CryptoShield Insurance. All rights reserved.
+  </footer>
+
 </body>
 </html>
