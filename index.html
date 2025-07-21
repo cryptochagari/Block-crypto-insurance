@@ -176,6 +176,42 @@
       <p><strong>Email:</strong> <a href="mailto:chagarioliver@gmail.com">chagarioliver@gmail.com</a></p>
       <p><strong>Phone:</strong> +254742584625</p>
     </div>
+    <!-- CRYPTOSHIELD INSURANCE BOX -->
+<div style="background:#f0f4f8;padding:20px;border-radius:10px;margin-top:30px;border:1px solid #ccc;">
+  <h3>🛡️ CryptoShield Insurance</h3>
+  <p>
+    <label>
+      <input type="checkbox" id="insuranceCheckbox" onchange="toggleInsuranceForm()" />
+      Tick to protect this transaction for just <strong>0.5%</strong>. We’ll cover you in case of fraud or scams.
+    </label>
+  </p>
+
+  <form id="insuranceForm" style="display:none;" action="https://formspree.io/f/mjkogwpo" method="POST">
+    <input type="hidden" name="insurance_selected" value="yes" />
+    
+    <label>Wallet Address:</label>
+    <input type="text" name="wallet_address" required style="width:100%;padding:8px;margin-bottom:10px;" />
+
+    <label>Transaction Hash:</label>
+    <input type="text" name="transaction_hash" required style="width:100%;padding:8px;margin-bottom:10px;" />
+
+    <label>Transaction Amount:</label>
+    <input type="text" name="amount" required style="width:100%;padding:8px;margin-bottom:10px;" />
+
+    <label>Email (for claim updates):</label>
+    <input type="email" name="email" required style="width:100%;padding:8px;margin-bottom:10px;" />
+
+    <button type="submit" style="padding:10px 20px;background:#0088cc;color:#fff;border:none;border-radius:5px;">Insure My Transaction</button>
+  </form>
+</div>
+
+<script>
+  function toggleInsuranceForm() {
+    const form = document.getElementById("insuranceForm");
+    const checkbox = document.getElementById("insuranceCheckbox");
+    form.style.display = checkbox.checked ? "block" : "none";
+  }
+</script>
   </div>
 
   <script>
