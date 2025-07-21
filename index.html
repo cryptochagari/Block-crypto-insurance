@@ -2,91 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CryptoShield Insurance</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f7fa;
-      color: #333;
-    }
-
-    header {
-      background: #111827;
-      color: #fff;
       padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2em;
     }
 
     .container {
-      max-width: 960px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #fff;
+      max-width: 600px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
 
     h2 {
-      color: #1f2937;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 10px;
+      color: #222;
       margin-bottom: 20px;
     }
 
-    .form-container {
-      margin-bottom: 40px;
+    .checkbox-section {
+      margin-bottom: 20px;
     }
 
-    footer {
-      background: #111827;
-      color: #d1d5db;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
+    label {
+      font-size: 1rem;
+      color: #333;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        margin: 15px;
-        padding: 15px;
-      }
-
-      h1 {
-        font-size: 1.5em;
-      }
+    #jotformForm {
+      display: none;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>🛡️ CryptoShield Insurance</h1>
-    <p>Protect your crypto transactions from fraud and scams.</p>
-  </header>
-
   <div class="container">
-    <div class="form-container">
-      <h2>📋 Register Your Transaction</h2>
-      <script type="text/javascript" src="https://form.jotform.com/jsform/252012631822041"></script>
+    <h2>🛡️ CryptoShield Insurance</h2>
+
+    <div class="checkbox-section">
+      <label>
+        <input type="checkbox" id="insuranceToggle" onchange="toggleJotform()" />
+        Tick to protect this transaction for just <strong>0.5%</strong>. We’ll cover you in case of fraud or scams.
+      </label>
     </div>
 
-    <div class="form-container">
-      <h2>📝 File a Claim</h2>
+    <div id="jotformForm">
       <script type="text/javascript" src="https://form.jotform.com/jsform/252012991788061"></script>
     </div>
   </div>
 
-  <footer>
-    &copy; 2025 CryptoShield Insurance. All rights reserved.
-  </footer>
-
+  <script>
+    function toggleJotform() {
+      const checkbox = document.getElementById("insuranceToggle");
+      const jotformDiv = document.getElementById("jotformForm");
+      jotformDiv.style.display = checkbox.checked ? "block" : "none";
+    }
+  </script>
 </body>
 </html>
