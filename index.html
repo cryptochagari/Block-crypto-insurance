@@ -4,222 +4,74 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CryptoShield Insurance</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #f0f0f0;
-      min-height: 100vh;
-      padding: 0 20px;
-    }
-
-    header {
-      background: #111;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #333;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    header h1 {
-      font-size: 1.5rem;
-      color: #00c9ff;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      margin: 0;
+      padding: 20px;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+    }
+
+    h1 {
       text-align: center;
+      color: #0088cc;
     }
 
-    .container h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .container p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-
-    .buttons button {
-      background: #00c9ff;
-      color: #fff;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
-    }
-
-    .buttons button:hover {
-      background: #00a2d6;
-      transform: translateY(-2px);
-    }
-
-    iframe {
-      display: none;
-      width: 100%;
-      height: 700px;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-    }
-
-    iframe.visible {
-      display: block;
-      animation: fadeIn 0.5s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.97); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .info-section {
-      background: #ffffff11;
-      padding: 2rem;
-      border-radius: 12px;
-      margin-top: 3rem;
-      text-align: left;
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .info-section h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .info-section p {
-      margin-bottom: 0.8rem;
-      font-size: 1rem;
-    }
-
-    .highlight {
-      color: #00ffcc;
+    label {
       font-weight: bold;
     }
 
-    a {
-      color: #00c9ff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      .container h2 {
-        font-size: 1.5rem;
-      }
-
-      .buttons button {
-        width: 100%;
-        margin-bottom: 10px;
-      }
+    input, textarea {
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CryptoShield</h1>
-  </header>
-
   <div class="container">
-    <h2>Protect Your Crypto Transactions</h2>
-    <p>Register your transaction for insurance coverage or file a claim if you suspect fraud. We're here to secure your digital assets.</p>
+    <h1>CryptoShield Insurance</h1>
 
-    <div class="buttons">
-      <button onclick="showForm('takeForm')">Take Insurance</button>
-      <button onclick="showForm('claimForm')">Make a Claim</button>
-    </div>
-
-    <div id="takeForm" class="form">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjq9lluuG5ZVCT2yfIzdigtkpY7AleSF8qhieg5SfenYpFrA/viewform?embedded=true">Loading…</iframe>
-    </div>
-
-    <div id="claimForm" class="form">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAi1ilamcpOwLKxWIEV6w7Qk0CNtlNjhHWEuNNuEYFZsFOGw/viewform?embedded=true">Loading…</iframe>
-    </div>
-
-    <div class="info-section">
-      <h3>💼 Coverage & Contact Info</h3>
-      <p><strong>Coverage Fee:</strong> <span class="highlight">1%</span> of the insured amount.</p>
-      <p><strong>Example:</strong> If you insure $500, the fee is just $5.</p>
-      <p><strong>Email:</strong> <a href="mailto:chagarioliver@gmail.com">chagarioliver@gmail.com</a></p>
-      <p><strong>Phone:</strong> +254742584625</p>
-    </div>
     <!-- CRYPTOSHIELD INSURANCE BOX -->
-<div style="background:#f0f4f8;padding:20px;border-radius:10px;margin-top:30px;border:1px solid #ccc;">
-  <h3>🛡️ CryptoShield Insurance</h3>
-  <p>
-    <label>
-      <input type="checkbox" id="insuranceCheckbox" onchange="toggleInsuranceForm()" />
-      Tick to protect this transaction for just <strong>0.5%</strong>. We’ll cover you in case of fraud or scams.
-    </label>
-  </p>
+    <div style="background:#f0f4f8;padding:20px;border-radius:10px;margin-top:30px;border:1px solid #ccc;">
+      <h3>🛡️ Transaction Protection</h3>
+      <p>
+        <label>
+          <input type="checkbox" id="insuranceCheckbox" onchange="toggleInsuranceForm()" />
+          Tick to protect this transaction for just <strong>0.5%</strong>. We’ll cover you in case of fraud or scams.
+        </label>
+      </p>
 
-  <form id="insuranceForm" style="display:none;" action="https://formspree.io/f/mjkogwpo" method="POST">
-    <input type="hidden" name="insurance_selected" value="yes" />
-    
-    <label>Wallet Address:</label>
-    <input type="text" name="wallet_address" required style="width:100%;padding:8px;margin-bottom:10px;" />
+      <form id="insuranceForm" style="display:none;" action="https://formspree.io/f/mjkogwpo" method="POST">
+        <input type="hidden" name="insurance_selected" value="yes" />
 
-    <label>Transaction Hash:</label>
-    <input type="text" name="transaction_hash" required style="width:100%;padding:8px;margin-bottom:10px;" />
+        <label>Wallet Address:</label><br />
+        <input type="text" name="wallet_address" required style="width:100%;padding:8px;margin-bottom:10px;" />
 
-    <label>Transaction Amount:</label>
-    <input type="text" name="amount" required style="width:100%;padding:8px;margin-bottom:10px;" />
+        <label>Transaction Hash:</label><br />
+        <input type="text" name="transaction_hash" required style="width:100%;padding:8px;margin-bottom:10px;" />
 
-    <label>Email (for claim updates):</label>
-    <input type="email" name="email" required style="width:100%;padding:8px;margin-bottom:10px;" />
+        <label>Transaction Amount:</label><br />
+        <input type="text" name="amount" required style="width:100%;padding:8px;margin-bottom:10px;" />
 
-    <button type="submit" style="padding:10px 20px;background:#0088cc;color:#fff;border:none;border-radius:5px;">Insure My Transaction</button>
-  </form>
-</div>
+        <label>Email (for claim updates):</label><br />
+        <input type="email" name="email" required style="width:100%;padding:8px;margin-bottom:10px;" />
 
-<script>
-  function toggleInsuranceForm() {
-    const form = document.getElementById("insuranceForm");
-    const checkbox = document.getElementById("insuranceCheckbox");
-    form.style.display = checkbox.checked ? "block" : "none";
-  }
-</script>
+        <button type="submit" style="padding:10px 20px;background:#0088cc;color:#fff;border:none;border-radius:5px;">Insure My Transaction</button>
+      </form>
+    </div>
   </div>
 
   <script>
-    function showForm(formId) {
-      document.querySelectorAll('.form iframe').forEach(iframe => {
-        iframe.classList.remove('visible');
-      });
-      document.querySelector(`#${formId} iframe`).classList.add('visible');
+    function toggleInsuranceForm() {
+      const form = document.getElementById("insuranceForm");
+      const checkbox = document.getElementById("insuranceCheckbox");
+      form.style.display = checkbox.checked ? "block" : "none";
     }
   </script>
 </body>
