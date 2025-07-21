@@ -7,82 +7,82 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f7fa;
+      background-color: #f4f6f8;
       margin: 0;
       padding: 20px;
     }
 
     .container {
-      max-width: 650px;
+      max-width: 700px;
       margin: auto;
-      background: #ffffff;
+      background: #fff;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
+      text-align: center;
       color: #222;
       margin-bottom: 25px;
-      text-align: center;
-    }
-
-    .checkbox-section {
-      margin-bottom: 20px;
     }
 
     label {
       display: block;
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: #333;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       cursor: pointer;
     }
 
-    .form-embed {
+    .form-section {
       display: none;
-      margin-top: 15px;
+      margin-top: 25px;
       border-top: 1px solid #ddd;
-      padding-top: 20px;
+      padding-top: 25px;
+    }
+
+    .form-box {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+    }
+
+    .form-box h3 {
+      margin-bottom: 15px;
+      color: #111;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>🛡️ CryptoShield Insurance Portal</h2>
+    <h2>🛡️ CryptoShield Insurance</h2>
 
-    <div class="checkbox-section">
-      <label>
-        <input type="checkbox" id="registerToggle" onchange="toggleForm('register')" />
-        ✅ Tick to protect your crypto transaction (0.5% coverage)
-      </label>
+    <label>
+      <input type="checkbox" id="toggleForms" onchange="toggleBothForms()" />
+      ✅ I want to register and/or file a claim
+    </label>
 
-      <label>
-        <input type="checkbox" id="claimToggle" onchange="toggleForm('claim')" />
-        📝 Tick if you want to file a scam or fraud claim
-      </label>
-    </div>
+    <div id="formContent" class="form-section">
+      <div class="form-box">
+        <h3>1. Register for Insurance</h3>
+        <script type="text/javascript" src="https://form.jotform.com/jsform/252012991788061"></script>
+      </div>
 
-    <div id="registerForm" class="form-embed">
-      <h3>Registration Form</h3>
-      <script type="text/javascript" src="https://form.jotform.com/jsform/252012991788061"></script>
-    </div>
-
-    <div id="claimForm" class="form-embed">
-      <h3>Claim Form</h3>
-      <script type="text/javascript" src="https://form.jotform.com/jsform/252031127842043"></script>
+      <div class="form-box">
+        <h3>2. File a Claim</h3>
+        <script type="text/javascript" src="https://form.jotform.com/jsform/252031127842043"></script>
+      </div>
     </div>
   </div>
 
   <script>
-    function toggleForm(formType) {
-      const registerBox = document.getElementById("registerToggle");
-      const claimBox = document.getElementById("claimToggle");
-      const registerForm = document.getElementById("registerForm");
-      const claimForm = document.getElementById("claimForm");
-
-      registerForm.style.display = registerBox.checked ? "block" : "none";
-      claimForm.style.display = claimBox.checked ? "block" : "none";
+    function toggleBothForms() {
+      const formSection = document.getElementById("formContent");
+      const checkbox = document.getElementById("toggleForms");
+      formSection.style.display = checkbox.checked ? "block" : "none";
     }
   </script>
 </body>
