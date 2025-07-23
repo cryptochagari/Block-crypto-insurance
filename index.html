@@ -68,13 +68,13 @@
     button:hover {
       background-color: #1e1e2f;
     }
-    .nav-buttons {
+    .secondary-buttons {
+      margin-top: 15px;
       text-align: center;
-      margin-bottom: 20px;
     }
-    .nav-buttons button {
-      margin: 0 5px 10px;
-      padding: 8px 12px;
+    .secondary-buttons button {
+      margin-top: 10px;
+      padding: 10px 16px;
       font-size: 0.9rem;
       background-color: #e5e5ee;
       color: #2a2a4a;
@@ -82,7 +82,7 @@
       border-radius: 8px;
       cursor: pointer;
     }
-    .nav-buttons button:hover {
+    .secondary-buttons button:hover {
       background-color: #d5d5e0;
     }
   </style>
@@ -90,34 +90,36 @@
 <body>
 
   <div class="claim-form">
-    <!-- Branding logo -->
     <img src="logo.png" alt="CryptoShield Logo" />
 
     <h1>CryptoShield</h1>
     <h2>Claim Insurance</h2>
 
-    <!-- Navigation -->
-    <div class="nav-buttons">
-      <button onclick="location.href='index.html'">Claim Insurance</button>
-      <button onclick="location.href='register.html'">Register Insurance</button>
-      <button onclick="location.href='status.html'">Claim Status</button>
-      <button onclick="location.href='faq.html'">FAQs</button>
-    </div>
-
     <!-- Claim Form -->
-    <form action="https://formspree.io/f/xdkdedwk" method="POST">
+    <form action="https://formspree.io/f/xdkdedwk" method="POST" onsubmit="handleSubmit(event)">
       <label for="insurance">Insurance Code</label>
       <input type="text" name="insurance" id="insurance" placeholder="e.g. INS123456" required />
-      
-      <!-- Redirect to thank-you page -->
+
       <input type="hidden" name="_redirect" value="https://cryptochagari.github.io/Block-crypto-insurance/thankyou.html" />
-      
-      <!-- Spam trap (invisible to users) -->
       <input type="text" name="_gotcha" style="display:none" />
 
       <button type="submit">Submit Claim</button>
     </form>
+
+    <div class="secondary-buttons" id="statusHelpButtons" style="display:none;">
+      <button onclick="location.href='status.html'">Check Claim Status</button>
+      <button onclick="location.href='faq.html'">FAQs</button>
+    </div>
   </div>
+
+  <script>
+    function handleSubmit(e) {
+      const code = document.getElementById('insurance').value;
+      if (code.trim() !== '') {
+        document.getElementById('statusHelpButtons').style.display = 'block';
+      }
+    }
+  </script>
 
 </body>
 </html>
