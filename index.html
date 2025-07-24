@@ -3,85 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CryptoShield Insurance Pool</title>
-  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <title>CryptoShield Wallet Connect</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      background: #0f0f23;
+      font-family: Arial, sans-serif;
+      background: #0e0e1b;
       color: #fff;
-      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
     button {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      margin-top: 1rem;
-      background: #1f8ded;
-      border: none;
+      background-color: #00c896;
       color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
       cursor: pointer;
       border-radius: 8px;
+      margin-top: 20px;
+    }
+    #walletAddress {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #00ffcc;
     }
   </style>
 </head>
 <body>
-  <h1>CryptoShield Insurance Pool</h1>
-  <p>Connect your wallet and contribute to join the insurance pool.</p>
-  <button onclick="connectWallet()">🔗 Connect Wallet</button>
-  <p id="walletAddress"></p>
-  <button onclick="joinPool()">✅ Join Insurance Pool (1 USDT)</button>
-  <p id="status"></p>
+  <h1>CryptoShield Insurance</h1>
+  <button onclick="connectWallet()">Connect Wallet</button>
+  <div id="walletAddress"></div>
 
   <script>
-    let web3;
-    let userAccount;
-
     async function connectWallet() {
-      if (window.ethereum) {
+      if (typeof window.ethereum !== 'undefined') {
         try {
-          await window.ethereum.request({ method: 'eth_requestAccounts' });
-          web3 = new Web3(window.ethereum);
-          const accounts = await web3.eth.getAccounts();
-          userAccount = accounts[0];
-          document.getElementById('walletAddress').innerText = 'Connected: ' + userAccount;
-        } catch (error) {
-          console.error('User denied wallet connection');
+          const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+          const walletAddress = accounts[0];
+          document.getElementById('walletAddress').innerText = 'Connected Wallet: ' + walletAddress;
+
+          // Optional: Prepare for 0.2% logic
+          console.log('Wallet connected:', walletAddress);
+        } catch (err) {
+          console.error('User rejected connection', err);
         }
       } else {
-        alert('Please install MetaMask!');
-      }
-    }
-
-    async function joinPool() {
-      if (!userAccount) return alert('Connect wallet first');
-
-      const usdtAddress = '0xdAC17F958D2ee523a2206206994597C13D831ec7'; // Mainnet USDT (ERC20)
-      const poolAddress = 'YOUR_INSURANCE_POOL_WALLET'; // Replace with your pool wallet address
-      const amount = web3.utils.toWei('1', 'mwei'); // USDT uses 6 decimals
-
-      const usdtABI = [
-        {
-          constant: false,
-          inputs: [
-            { name: "_to", type: "address" },
-            { name: "_value", type: "uint256" }
-          ],
-          name: "transfer",
-          outputs: [{ name: "", type: "bool" }],
-          type: "function"
-        }
-      ];
-
-      const contract = new web3.eth.Contract(usdtABI, usdtAddress);
-
-      try {
-        const tx = await contract.methods.transfer(poolAddress, amount).send({ from: userAccount });
-        document.getElementById('status').innerText = '✅ Joined pool successfully!';
-        console.log(tx);
-      } catch (err) {
-        document.getElementById('status').innerText = '❌ Failed to join pool';
-        console.error(err);
+        alert('MetaMask not found. Please install MetaMask.');
       }
     }
   </script>
