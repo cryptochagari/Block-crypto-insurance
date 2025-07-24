@@ -3,100 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CryptoShield Insurance</title>
-  <link rel="icon" href="https://cryptochagari.github.io/assets/logo.png" />
+  <title>CryptoShield Insurance Pool</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      color: #fff;
-      padding: 2rem;
+      font-family: sans-serif;
       text-align: center;
-    }
-    .logo {
-      width: 180px;
-      margin-bottom: 1rem;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    form {
-      background-color: #1e293b;
-      padding: 2rem;
-      border-radius: 1rem;
-      max-width: 400px;
-      margin: 0 auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-    input[type="text"], button {
-      padding: 0.8rem;
-      width: 100%;
-      margin: 1rem 0;
-      border: none;
-      border-radius: 0.5rem;
-    }
-    input[type="text"] {
-      background-color: #334155;
+      background: #0f0f23;
       color: #fff;
+      padding: 2rem;
     }
     button {
-      background-color: #3b82f6;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .status {
-      display: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
       margin-top: 1rem;
-      color: #22c55e;
-      font-weight: bold;
-    }
-    .footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-    }
-    a {
-      color: #93c5fd;
-      text-decoration: none;
+      background: #1f8ded;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
     }
   </style>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-
-  <img src="https://cryptochagari.github.io/assets/logo.png" alt="CryptoShield Logo" class="logo"/>
-  <h1>CryptoShield Insurance</h1>
-
-  <form id="claimForm" action="https://formspree.io/f/xdkdedwk" method="POST">
-    <label for="insuranceCode">Enter Insurance Code</label>
-    <input type="text" name="insuranceCode" id="insuranceCode" placeholder="e.g. CS-7890-XYZ" required />
-
-    <div class="g-recaptcha" data-sitekey="6LfMdIwrAAAAAA_bv4JfM9CYzP6rGIGMEX-ETbUU"></div>
-
-    <button type="submit">Submit Claim</button>
-
-    <div id="claimStatus" class="status">✅ Claim code valid. Status: Processing</div>
-  </form>
-
-  <div class="footer">
-    <a href="faqs.html">FAQs / Help Center</a>
-  </div>
+  <h1>CryptoShield Insurance Pool</h1>
+  <p>Connect your wallet and contribute to join the insurance pool.</p>
+  <button onclick="connectWallet()">🔗 Connect Wallet</button>
+  <p id="walletAddress"></p>
+  <button onclick="joinPool()">✅ Join Insurance Pool (1 USDT)</button>
+  <p id="status"></p>
 
   <script>
-    // Show Claim Status after code is entered (mock validation for demo)
-    const form = document.getElementById('claimForm');
-    const codeInput = document.getElementById('insuranceCode');
-    const statusDiv = document.getElementById('claimStatus');
+    let web3;
+    let userAccount;
 
-    form.addEventListener('submit', function(event) {
-      if (codeInput.value.trim().length > 5) {
-        statusDiv.style.display = 'block';
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          web3 = new Web3(window.ethereum);
+          const accounts = await web3.eth.getAccounts();
+          userAccount = accounts[0];
+          document.getElementById('walletAddress').innerText = 'Connected: ' + userAccount;
+        } catch (error) {
+          console.error('User denied wallet connection');
+        }
       } else {
-        statusDiv.style.display = 'none';
+        alert('Please install MetaMask!');
       }
-    });
-  </script>
+    }
 
+    async function joinPool() {
+      if (!userAccount) return alert('Connect wallet first');
+
+      const usdtAddress = '0xdAC17F958D2ee523a2206206994597C13D831ec7'; // Mainnet USDT (ERC20)
+      const poolAddress = 'YOUR_INSURANCE_POOL_WALLET'; // Replace with your pool wallet address
+      const amount = web3.utils.toWei('1', 'mwei'); // USDT uses 6 decimals
+
+      const usdtABI = [
+        {
+          constant: false,
+          inputs: [
+            { name: "_to", type: "address" },
+            { name: "_value", type: "uint256" }
+          ],
+          name: "transfer",
+          outputs: [{ name: "", type: "bool" }],
+          type: "function"
+        }
+      ];
+
+      const contract = new web3.eth.Contract(usdtABI, usdtAddress);
+
+      try {
+        const tx = await contract.methods.transfer(poolAddress, amount).send({ from: userAccount });
+        document.getElementById('status').innerText = '✅ Joined pool successfully!';
+        console.log(tx);
+      } catch (err) {
+        document.getElementById('status').innerText = '❌ Failed to join pool';
+        console.error(err);
+      }
+    }
+  </script>
 </body>
 </html>
